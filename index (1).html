@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiRmiR — The Research Companion</title>
+<meta name="description" content="MiRmiR is Africa's trusted research ecosystem — connecting researchers, respondents, and institutions with verified data collection, affordable analytics, and peer mentorship.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-950:#0E1F17;
+    --forest-900:#12281E;
+    --forest-800:#1C3A2C;
+    --forest-700:#264A38;
+    --forest-600:#2F5744;
+    --sage-300:#C9D6C4;
+    --sage-200:#DCE5D6;
+    --parchment:#F7F3EA;
+    --paper:#FFFFFF;
+    --ink-900:#16201A;
+    --ink-600:#455249;
+    --ochre-500:#C08A2E;
+    --ochre-600:#9C6F22;
+    --ochre-100:#F1E1C1;
+    --line: rgba(22,32,26,0.12);
+    --line-dark: rgba(247,243,234,0.16);
+    --radius: 18px;
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink-900);
+    font-family:'Sora', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink-900);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--ochre-600);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;
+    height:1px;
+    background:var(--ochre-500);
+    display:inline-block;
+  }
+  .on-dark .eyebrow{color:var(--sage-300);}
+  .on-dark .eyebrow::before{background:var(--sage-300);}
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  :focus-visible{
+    outline:3px solid var(--ochre-500);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(14,31,23,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:14px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--parchment);
+    text-decoration:none;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.15rem;
+  }
+  .brand img{ height:26px; width:auto; }
+  nav.links{
+    display:flex;
+    gap:28px;
+    font-size:0.92rem;
+    font-weight:500;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--sage-300);
+    transition:color 0.2s ease;
+  }
+  nav.links a:hover{color:var(--parchment);}
+  .nav-cta{
+    background:var(--ochre-500);
+    color:var(--forest-950);
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.88rem;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background 0.2s ease, transform 0.2s ease;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .nav-cta:hover{background:#d69a3c; transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 82% -10%, rgba(192,138,46,0.16), transparent 60%),
+      linear-gradient(180deg, var(--forest-900), var(--forest-950));
+    color:var(--parchment);
+    padding:88px 0 108px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.8fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.2vw, 3.7rem);
+    font-weight:600;
+    line-height:1.06;
+    color:var(--parchment);
+    margin:20px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--ochre-500);
+  }
+  .hero p.lede{
+    font-size:1.12rem;
+    color:var(--sage-300);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-ctas{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--ochre-500);
+    color:var(--forest-950);
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:700;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:0.98rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(192,138,46,0.35);}
+  .btn-ghost{
+    color:var(--parchment);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    padding-bottom:2px;
+    border-bottom:1px solid var(--line-dark);
+  }
+
+  .mark-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .mark-plate{
+    position:relative;
+    width:100%;
+    max-width:300px;
+    aspect-ratio:1/1;
+    border-radius:32px;
+    background:radial-gradient(circle at 50% 40%, rgba(192,138,46,0.14), transparent 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .mark-plate img{
+    width:64%;
+    height:auto;
+    animation: breathe 4.5s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{ opacity:0.92; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.035); }
+  }
+  .orbit-dot{
+    position:absolute;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--ochre-500);
+    animation: orbitpulse 3s ease-in-out infinite;
+  }
+  .orbit-dot:nth-child(2){ top:12%; left:18%; animation-delay:0.4s; }
+  .orbit-dot:nth-child(3){ bottom:16%; right:14%; animation-delay:1.1s; }
+  .orbit-dot:nth-child(4){ top:22%; right:10%; width:6px; height:6px; background:var(--sage-300); animation-delay:1.8s; }
+  @keyframes orbitpulse{
+    0%,100%{ opacity:0.35; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.5); }
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding:96px 0; }
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3vw, 2.5rem);
+    font-weight:600;
+    margin-top:16px;
+    line-height:1.14;
+  }
+  .section-head p{
+    color:var(--ink-600);
+    font-size:1.05rem;
+    margin-top:16px;
+  }
+  .section-head.on-dark p{ color:var(--sage-300); }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--parchment); }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .about-card h3{
+    font-size:1.1rem;
+    font-weight:700;
+    margin-bottom:10px;
+    color:var(--forest-800);
+  }
+  .about-card p{ color:var(--ink-600); margin:0; font-size:0.98rem; }
+  .about-card{ margin-bottom:32px; }
+
+  .pillars{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .pillar{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px;
+  }
+  .pillar h4{ font-size:0.96rem; font-weight:700; margin-bottom:6px; }
+  .pillar p{ font-size:0.86rem; color:var(--ink-600); margin:0; }
+
+  /* ---------- HOW IT WORKS (tabs) ---------- */
+  .how{ background:var(--parchment); color:var(--ink-900); }
+  .tab-switch{
+    display:inline-flex;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:5px;
+    margin-bottom:36px;
+    gap:4px;
+  }
+  .tab-btn{
+    background:transparent;
+    border:none;
+    color:var(--ink-600);
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    padding:11px 24px;
+    border-radius:999px;
+    cursor:pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .tab-btn.active{
+    background:var(--ochre-500);
+    color:var(--forest-950);
+  }
+  .flow{ display:none; }
+  .flow.active{ display:grid; grid-template-columns: 1fr; gap:0; }
+  .flow-step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:22px;
+    padding:24px 0;
+    border-top:1px solid var(--line);
+  }
+  .flow-step:last-child{ border-bottom:1px solid var(--line); }
+  .flow-step .step-index{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--ochre-600);
+    font-size:0.95rem;
+    font-weight:600;
+    padding-top:2px;
+  }
+  .flow-step h4{
+    font-family:'Sora', sans-serif;
+    font-size:1.04rem;
+    font-weight:700;
+    margin:0 0 6px;
+    color:var(--ink-900);
+  }
+  .flow-step p{
+    margin:0;
+    color:var(--ink-600);
+    font-size:0.95rem;
+    max-width:58ch;
+  }
+
+  /* ---------- WHO WE WORK WITH ---------- */
+  .audience{ background:var(--paper); }
+  .aud-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  .aud-card{
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px;
+  }
+  .aud-card h3{ font-size:1.06rem; font-weight:700; margin-bottom:10px; }
+  .aud-card p{ color:var(--ink-600); font-size:0.95rem; margin:0; }
+  .aud-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ochre-600);
+    background:var(--ochre-100);
+    padding:4px 10px;
+    border-radius:6px;
+    margin-bottom:14px;
+  }
+  .start-note{
+    margin-top:28px;
+    font-size:0.92rem;
+    color:var(--ink-600);
+  }
+  .start-note strong{ color:var(--forest-800); }
+
+  /* ---------- WHAT YOU GAIN ---------- */
+  .benefits{ background:var(--forest-800); color:var(--parchment); }
+  .benefits .section-head h2{ color:var(--parchment); }
+  .benefits .section-head p{ color:var(--sage-300); }
+  .gain-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .gain-card{
+    background:rgba(247,243,234,0.06);
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .gain-card h3{
+    font-family:'Sora', sans-serif;
+    font-size:1.1rem;
+    font-weight:700;
+    margin-bottom:18px;
+    color:var(--ochre-500);
+  }
+  .gain-list{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+  .gain-list li{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:0.94rem; color:var(--sage-200);
+  }
+  .gain-list li svg{ flex-shrink:0; width:18px; height:18px; stroke:var(--ochre-500); margin-top:2px; }
+  .both-note{
+    margin-top:24px;
+    background:rgba(192,138,46,0.12);
+    border:1px solid rgba(192,138,46,0.35);
+    border-radius:14px;
+    padding:18px 22px;
+    font-size:0.92rem;
+    color:var(--sage-200);
+  }
+  .both-note strong{ color:var(--ochre-500); }
+
+  /* ---------- VISION / MISSION / GOAL ---------- */
+  .purpose{ background:var(--forest-800); color:var(--parchment); }
+  .purpose .section-head h2{ color:var(--parchment); }
+  .purpose-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .purpose-card{
+    background:rgba(247,243,234,0.06);
+    border:1px solid var(--line-dark);
+    border-radius:var(--radius);
+    padding:30px;
+  }
+  .purpose-card .eyebrow{ color:var(--ochre-500); }
+  .purpose-card .eyebrow::before{ background:var(--ochre-500); }
+  .purpose-card p{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    line-height:1.4;
+    margin-top:14px;
+    color:var(--sage-200);
+  }
+
+  /* ---------- WAITLIST ---------- */
+  .waitlist{
+    background:var(--parchment);
+    text-align:center;
+  }
+  .waitlist-card{
+    background:var(--forest-900);
+    color:var(--parchment);
+    border-radius:28px;
+    padding:68px 40px;
+    max-width:680px;
+    margin:0 auto;
+  }
+  .waitlist-card h2{ color:var(--parchment); font-size:clamp(1.8rem,3vw,2.4rem); font-weight:600; }
+  .waitlist-card p{ color:var(--sage-300); max-width:48ch; margin:16px auto 30px; }
+  form.wl-form{
+    display:flex;
+    gap:10px;
+    max-width:520px;
+    margin:0 auto;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .wl-form input[type=email], .wl-form input[type=text]{
+    flex:1;
+    min-width:220px;
+    padding:15px 18px;
+    border-radius:999px;
+    border:1px solid var(--line-dark);
+    background:var(--forest-950);
+    color:var(--parchment);
+    font-family:'Sora', sans-serif;
+    font-size:0.95rem;
+  }
+  .wl-form input[type=email]::placeholder, .wl-form input[type=text]::placeholder{ color:var(--sage-300); opacity:0.7; }
+  .wl-form input:focus-visible{ outline:2px solid var(--ochre-500); outline-offset:2px; }
+  .role-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+  }
+  .role-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid var(--line-dark);
+    background:var(--forest-950);
+    color:var(--sage-300);
+    font-size:0.86rem;
+    font-family:'Sora', sans-serif;
+    cursor:pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .role-chip input{ accent-color:var(--ochre-500); margin:0; }
+  .role-chip.checked{
+    background:var(--ochre-500);
+    color:var(--forest-950);
+    border-color:var(--ochre-500);
+  }
+  .role-chip.disabled{
+    opacity:0.35;
+    cursor:not-allowed;
+  }
+  .wl-note{ font-size:0.8rem; color:var(--sage-300); opacity:0.75; margin-top:16px; }
+
+  .wl-modal-overlay{
+    display:none;
+    position:fixed; inset:0;
+    background:rgba(14,31,23,0.6);
+    align-items:center; justify-content:center;
+    padding:24px;
+    z-index:200;
+  }
+  .wl-modal-overlay.open{ display:flex; }
+  .wl-modal{
+    background:var(--parchment);
+    border-radius:24px;
+    padding:40px 36px;
+    max-width:400px;
+    width:100%;
+    text-align:center;
+    position:relative;
+    box-shadow:0 30px 60px rgba(0,0,0,0.35);
+  }
+  .wl-modal-close{
+    position:absolute; top:16px; right:16px;
+    background:none; border:none; font-size:1.4rem; line-height:1;
+    color:var(--ink-600); cursor:pointer; padding:4px;
+  }
+  .wl-modal-close:hover{ color:var(--ink-900); }
+  .wl-modal-icon{
+    width:52px; height:52px; margin:0 auto 18px;
+    border-radius:50%; background:var(--ochre-100);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .wl-modal-icon svg{ width:26px; height:26px; stroke:var(--ochre-600); }
+  .wl-modal h2{ font-size:1.4rem; font-weight:600; margin-bottom:10px; }
+  .wl-modal p{ color:var(--ink-600); font-size:0.95rem; margin-bottom:24px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--forest-950);
+    color:var(--sage-300);
+    padding:40px 0 30px;
+    border-top:1px solid var(--line-dark);
+  }
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.85rem;
+  }
+  .foot-brand{ display:flex; align-items:center; gap:10px; color:var(--parchment); font-family:'Fraunces'; font-weight:700; }
+  .foot-brand img{ height:22px; width:auto; }
+  .foot-links{ display:flex; gap:22px; }
+  .foot-links a{ text-decoration:none; color:var(--sage-300); }
+  .foot-links a:hover{ color:var(--parchment); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .mark-wrap{ order:-1; max-width:220px; margin:0 auto 16px; }
+    .about-grid, .aud-grid{ grid-template-columns:1fr; }
+    .pillars, .purpose-grid{ grid-template-columns:1fr; }
+    nav.links{ display:none; }
+    section{ padding:64px 0; }
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="data:image/png;base64,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" alt="MiRmiR mark">
+      MiRmiR
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#audience">Who it's for</a>
+      <a href="#benefits">What you gain</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join the waitlist</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Building now — starting in Ethiopia</span>
+        <h1>Making research faster, <em>trustworthy</em>, and collaborative.</h1>
+        <p class="lede">MiRmiR is a platform in the making — built to connect researchers, respondents, and institutions across Africa, so collecting real data no longer depends on tools and budgets built for someone else's market.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+            Get early access
+          </button>
+          <a href="#about" class="btn-ghost">Learn more ↓</a>
+        </div>
+      </div>
+      <div class="mark-wrap">
+        <div class="mark-plate">
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot"></div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXoAAAFECAYAAAAp0PVNAAAGf0lEQVR4nO3YMW4cZRiA4c/RlilMRwWWQKLlAEixOQE3iAsO4BsQJHo4Qk6CnBssPUWgIanYghLJNEaiCCJGnpn16+eRpp3vn939Xq3m5Obm5mpmvprlXS98/49m5suFZ8zM/Dgzvy4843Lh+8/MHG6vJe1m5s+FZ/w8M18vPOOLmflu4RkzM/tZ9juxI3dzmMiOnNzc3FzPzLOFB8FSDjPzwcIzrmbm+4VnwFIOT7Y+AQDLEnqAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoC4JzNzvdKsk4Wvi5We42KFZ1nDtys8x6sVnuOnFWbsV5gxs/xvy47cTWZH/KMHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4jbbX0ANnM2M+cLzzhd+P4zM09XmMHjdDaRHRH6x+v57fXQ/bH1AcjK7IhXNwBxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHFCDxC32/oAvNPF1gd4QA5bH4BN2JH3dxD643S99QHgyF1vfYCHxKsbgDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAuN3WB+Cdfl9hxtuZebPCnKXtZ+Zq4zOwPjvy/vZCf5xOV5rx2QpzYAmnK81I7IhXNwBxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHFCDxAn9ABxQg8QJ/QAcUIPECf0AHG7rQ/AZn6ZmddbH+Ie7Lc+AFmZHRH6x+vlzLzY+AxwzF5OZEe8ugGIE3qAOKEHiBN6gLjdzJytNOvFwvc/W/j+f/twpTkcj7W+88uZOV/w/mcL3vuf7MiRWTP036w0Z2l+xI/PWt/585XmLM2OHBmvbgDihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiDuycycz8xJ4Lq434/mX+1XmsPx+GG2/33bEf43/+gB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeKEHiBO6AHihB4gTugB4oQeIE7oAeJ2M3N5ez10pyvN+XRmrleataTLmTnf+Az3YT8zVwvP+Hxmflh4xhpOV5pjR47LfjczZzPzbOODPCRPtz7APfn49uK/nY4duQs7cmS8ugGIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4gTeoA4oQeIE3qAOKEHiBN6gDihB4jbzczrmXm18Tnuw9OZ+WSFOb+tMOOwwoy3M/NmhTlL268w4zB25C7syHHZ/wUivVdqUvBRDAAAAABJRU5ErkJggg==" alt="MiRmiR logo mark">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT: WHO WE ARE / WHAT WE DO -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who we are</span>
+        <h2>A research companion, being built for how Africa actually researches.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>The problem we saw</h3>
+          <p>Good research ideas across Africa often stall — not from a lack of curiosity, but because reaching real respondents is expensive and hard to verify, and the analysis tools built for well-funded institutions elsewhere are out of reach here.</p>
+        </div>
+        <div class="about-card">
+          <h3>What we're building</h3>
+          <p>MiRmiR is one platform designed to take a study from question to finding: verified respondents to answer it, affordable analytics to make sense of it, and a community to strengthen it along the way.</p>
+        </div>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <h4>Verified data collection</h4>
+          <p>ID-checked, incentivized respondents — so what you collect is trustworthy from the start.</p>
+        </div>
+        <div class="pillar">
+          <h4>Affordable analytics</h4>
+          <p>Tools designed to be an accessible alternative to expensive software like SPSS.</p>
+        </div>
+        <div class="pillar">
+          <h4>Community & mentorship</h4>
+          <p>A place for peer feedback and guidance, so no one is figuring out research methods alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="audience" id="audience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who it's for</span>
+        <h2>Built for researchers first — useful to anyone who needs real answers.</h2>
+      </div>
+      <div class="aud-grid">
+        <div class="aud-card">
+          <span class="aud-tag">Primary</span>
+          <h3>Universities, researchers & students</h3>
+          <p>Early-career researchers, students, and university staff who need affordable, verifiable ways to collect and analyze data.</p>
+        </div>
+        <div class="aud-card">
+          <span class="aud-tag">Also welcome</span>
+          <h3>Companies, NGOs & government</h3>
+          <p>Organizations that need trustworthy, verified data from real people — for product research, program evaluation, or policy work.</p>
+        </div>
+      </div>
+      <p class="start-note"><strong>Where we're starting:</strong> we're beginning conversations with universities in Addis Ababa, Ethiopia, with the hope of growing across Ethiopia and, over time, the wider East and Sub-Saharan Africa region.</p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GAIN -->
+  <section class="benefits" id="benefits">
+    <div class="wrap">
+      <div class="section-head on-dark">
+        <span class="eyebrow">What you gain</span>
+        <h2>Built so both sides have a real reason to show up.</h2>
+        <p>MiRmiR only works if it's genuinely worth researchers' and respondents' time — so here's what each side gets out of it.</p>
+      </div>
+      <div class="gain-grid">
+        <div class="gain-card">
+          <h3>If you're a researcher</h3>
+          <ul class="gain-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Reach verified respondents without chasing contacts or guessing who really answered.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Spend less — affordable analytics instead of costly software licenses.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Get feedback from peers, so your study design improves before data collection starts.</li>
+          </ul>
+        </div>
+        <div class="gain-card">
+          <h3>If you're a respondent</h3>
+          <ul class="gain-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Get paid for the time and knowledge you already have.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Build your profile once, and open the door to more matched opportunities over time.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Answer on your own schedule, and choose exactly what's visible about you.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="both-note"><strong>You can be both.</strong> A student answering studies today might be posting their own thesis research tomorrow — one verified account, with a researcher profile and a respondent profile you can switch between, the way Upwork separates "find work" from "hire talent."</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it will work</span>
+        <h2>Two sides, one simple exchange.</h2>
+        <p>Researchers get verified answers. Respondents get paid for their time and knowledge. Here's the plan, as we're building it.</p>
+      </div>
+
+      <div class="tab-switch" role="tablist" aria-label="Choose a journey">
+        <button class="tab-btn active" id="tab-researcher" role="tab" aria-selected="true" aria-controls="flow-researcher" onclick="showFlow('researcher')">For Researchers</button>
+        <button class="tab-btn" id="tab-respondent" role="tab" aria-selected="false" aria-controls="flow-respondent" onclick="showFlow('respondent')">For Respondents</button>
+      </div>
+
+      <div class="flow active" id="flow-researcher" role="tabpanel" aria-labelledby="tab-researcher">
+        <div class="flow-step">
+          <span class="step-index">01</span>
+          <div><h4>Post your study</h4><p>Submit your questions and set the criteria for who you need to hear from.</p></div>
+        </div>
+        <div class="flow-step">
+          <span class="step-index">02</span>
+          <div><h4>Reach verified respondents</h4><p>Get matched with people who fit your criteria, handpicked or filtered — each one ID-verified.</p></div>
+        </div>
+        <div class="flow-step">
+          <span class="step-index">03</span>
+          <div><h4>Collect and analyze</h4><p>Responses land in your dataset ready for analysis, with tools built to make sense of them affordably.</p></div>
+        </div>
+      </div>
+
+      <div class="flow" id="flow-respondent" role="tabpanel" aria-labelledby="tab-respondent">
+        <div class="flow-step">
+          <span class="step-index">01</span>
+          <div><h4>Build your profile</h4><p>Verify your ID once, add your background, and control exactly what's visible to researchers.</p></div>
+        </div>
+        <div class="flow-step">
+          <span class="step-index">02</span>
+          <div><h4>Get matched to studies</h4><p>Apply to open studies or receive direct invitations that fit your profile.</p></div>
+        </div>
+        <div class="flow-step">
+          <span class="step-index">03</span>
+          <div><h4>Answer and get paid</h4><p>Share your time and knowledge, then withdraw your earnings whenever you're ready.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION / MISSION / GOAL (kept on-page, not in nav) -->
+  <section class="purpose" id="purpose">
+    <div class="wrap">
+      <div class="section-head on-dark">
+        <span class="eyebrow">Why we exist</span>
+        <h2>Vision, mission, and the goal in front of us.</h2>
+      </div>
+      <div class="purpose-grid">
+        <div class="purpose-card">
+          <span class="eyebrow">Vision</span>
+          <p>To become Africa's trusted research ecosystem, and scale that trust globally.</p>
+        </div>
+        <div class="purpose-card">
+          <span class="eyebrow">Mission</span>
+          <p>To make rigorous research affordable, verifiable, and collaborative — for every researcher and respondent, regardless of budget.</p>
+        </div>
+        <div class="purpose-card">
+          <span class="eyebrow">Goal</span>
+          <p>Start conversations with universities in Addis Ababa, and build the first version of MiRmiR alongside the people who'll actually use it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="waitlist" id="waitlist">
+    <div class="wrap">
+      <div class="waitlist-card">
+        <span class="eyebrow">Join early</span>
+        <h2>Help shape MiRmiR from the start.</h2>
+        <p>We're building this now and want to hear from the people it's for. Tell us which role(s) fit you, and we'll reach out as soon as there's something to try.</p>
+        <form class="wl-form" onsubmit="return joinWaitlist(event)">
+          <fieldset style="border:none; margin:0; padding:0 0 14px; width:100%;">
+            <legend style="font-size:0.82rem; color:var(--sage-300); margin-bottom:10px; text-align:left; padding:0;">I am a... (required — choose all that apply)</legend>
+            <div class="role-group">
+              <label class="role-chip">
+                <input type="checkbox" id="role-researcher" name="role" value="researcher" onchange="toggleChip(this)">
+                Researcher / student
+              </label>
+              <label class="role-chip">
+                <input type="checkbox" id="role-respondent" name="role" value="respondent" onchange="toggleChip(this)">
+                Respondent
+              </label>
+              <label class="role-chip">
+                <input type="checkbox" id="role-institution" name="role" value="institution" onchange="toggleChip(this)">
+                University / institution
+              </label>
+            </div>
+          </fieldset>
+          <label for="wl-name" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);">Full name</label>
+          <input id="wl-name" type="text" placeholder="Full name" required autocomplete="name">
+          <label for="wl-email" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);">Email address</label>
+          <input id="wl-email" type="email" placeholder="you@email.com" required>
+          <button class="btn-primary" type="submit">Join early access</button>
+        </form>
+        <p class="wl-error" id="wl-error" style="display:none; color:#F0B8A8; font-size:0.82rem; margin-top:10px;"></p>
+        <p class="wl-note">No spam. Just a note when MiRmiR is ready for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wl-modal-overlay" id="wl-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wl-modal-title" onclick="if(event.target===this) closeWaitlistModal()">
+    <div class="wl-modal">
+      <button class="wl-modal-close" onclick="closeWaitlistModal()" aria-label="Close">&times;</button>
+      <div class="wl-modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2 id="wl-modal-title">You're on the list</h2>
+      <p>Thank you for joining the MiRmiR waitlist. We'll contact you as soon as the system goes live.</p>
+      <button class="btn-primary" onclick="closeWaitlistModal()">Got it</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <img src="data:image/png;base64,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" alt="MiRmiR mark">
+      MiRmiR
+    </div>
+    <p style="margin:0;">© 2026 MiRmiR — The Research Companion.</p>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#audience">Who it's for</a>
+      <a href="#benefits">What you gain</a>
+      <a href="#how">How it works</a>
+      <a href="#waitlist">Waitlist</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showFlow(which){
+    document.getElementById('flow-researcher').classList.toggle('active', which === 'researcher');
+    document.getElementById('flow-respondent').classList.toggle('active', which === 'respondent');
+    document.getElementById('tab-researcher').classList.toggle('active', which === 'researcher');
+    document.getElementById('tab-respondent').classList.toggle('active', which === 'respondent');
+    document.getElementById('tab-researcher').setAttribute('aria-selected', which === 'researcher');
+    document.getElementById('tab-respondent').setAttribute('aria-selected', which === 'respondent');
+  }
+
+  function updateRoleExclusivity(){
+    const researcher = document.getElementById('role-researcher');
+    const respondent = document.getElementById('role-respondent');
+    const institution = document.getElementById('role-institution');
+    const personalChecked = researcher.checked || respondent.checked;
+    const instChecked = institution.checked;
+
+    institution.disabled = personalChecked;
+    institution.closest('.role-chip').classList.toggle('disabled', personalChecked);
+
+    [researcher, respondent].forEach(cb => {
+      cb.disabled = instChecked;
+      cb.closest('.role-chip').classList.toggle('disabled', instChecked);
+    });
+  }
+
+  function toggleChip(input){
+    input.closest('.role-chip').classList.toggle('checked', input.checked);
+    updateRoleExclusivity();
+  }
+
+  // Mailchimp integration: posts directly to your audience's subscribe
+  // endpoint. mode:'no-cors' means we can't read Mailchimp's response body,
+  // but the submission still reaches them — we just can't confirm details
+  // back, so we show our own success state once the request completes.
+  const MAILCHIMP_ACTION = 'https://techhillsolutions.us4.list-manage.com/subscribe/post?u=f217140ff7ef091dd67b70341&id=a69b05a6da&f_id=00dcd2e9f0';
+  const MAILCHIMP_ROLE_GROUP_ID = '75487';
+  const MAILCHIMP_ROLE_OPTIONS = { researcher: '1', respondent: '2', institution: '4' };
+  const MAILCHIMP_HONEYPOT_FIELD = 'b_f217140ff7ef091dd67b70341_a69b05a6da';
+
+  async function joinWaitlist(e){
+    e.preventDefault();
+    const form = e.target;
+    const nameInput = document.getElementById('wl-name');
+    const emailInput = document.getElementById('wl-email');
+    const errorEl = document.getElementById('wl-error');
+    const submitBtn = form.querySelector('button[type=submit]');
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const checkedRoles = form.querySelectorAll('input[name="role"]:checked');
+
+    if(!name || !email){
+      errorEl.textContent = 'Please fill in your name and email.';
+      errorEl.style.display = 'block';
+      return false;
+    }
+    if(checkedRoles.length === 0){
+      errorEl.textContent = 'Please select at least one role above.';
+      errorEl.style.display = 'block';
+      return false;
+    }
+    errorEl.style.display = 'none';
+
+    const params = new URLSearchParams();
+    params.append('FNAME', name);
+    params.append('EMAIL', email);
+    checkedRoles.forEach(cb => {
+      const optionValue = MAILCHIMP_ROLE_OPTIONS[cb.value];
+      if(optionValue) params.append(`group[${MAILCHIMP_ROLE_GROUP_ID}][${optionValue}]`, '1');
+    });
+    params.append(MAILCHIMP_HONEYPOT_FIELD, '');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Joining…';
+
+    try{
+      // Race against a timeout so a slow/unresponsive network can never
+      // leave the button stuck — same lesson as the prototype's storage fix.
+      await Promise.race([
+        fetch(MAILCHIMP_ACTION, { method: 'POST', mode: 'no-cors', body: params }),
+        new Promise(resolve => setTimeout(resolve, 6000))
+      ]);
+      form.reset();
+      document.querySelectorAll('.role-chip').forEach(chip => chip.classList.remove('checked', 'disabled'));
+      document.querySelectorAll('input[name="role"]').forEach(cb => { cb.disabled = false; });
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join early access';
+      openWaitlistModal();
+    }catch(err){
+      console.error('Waitlist submission failed', err);
+      errorEl.textContent = 'Something went wrong — please try again in a moment.';
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join early access';
+    }
+    return false;
+  }
+
+  function openWaitlistModal(){
+    document.getElementById('wl-modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWaitlistModal(){
+    document.getElementById('wl-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeWaitlistModal();
+  });
+</script>
+
+</body>
+</html>
